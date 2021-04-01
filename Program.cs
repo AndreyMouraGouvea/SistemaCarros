@@ -11,13 +11,7 @@ namespace SistemaCarrosClasse
        public int ano;
        public string cor;
        public int numero_portas;
-       public int capacidadePortaMala;
-       public Boolean bagageiro;
-       public int numero_assentos;
-       public int numero_eixos;
-       public double peso_maximo_carga;
-       public double quilometragem;
-       public string tipo_carteira;
+
     
         //construtor com parâmetros
         public Veiculo (string modelo, string fabricante, int ano, string cor, int numero_portas){
@@ -158,6 +152,7 @@ namespace SistemaCarrosClasse
                 {
                     case 1:
                         do{
+                            // criar parâmetro aberto?
                           carro[x] = new Carro();  
                           Console.WriteLine("-------Cadastrar Carro-------")  ;
                           Console.Write("Modelo: ");
@@ -183,6 +178,7 @@ namespace SistemaCarrosClasse
                         break;
                     case 2:
                         do{
+                            // criar parâmetro aberto?
                             caminhao[y] = new Caminhao();
                             Console.WriteLine("-------Cadastrar Caminhão-------")  ;
                             Console.Write("Modelo: ");
@@ -202,7 +198,7 @@ namespace SistemaCarrosClasse
                             caminhao[y].Peso_maximo_carga = double.Parse(Console.ReadLine());
                             // tipo carteira
                             Console.Write("Tipo Carteira: ");
-                            caminhao[y].Tipo_carteira = char.Parse(Console.ReadLine());
+                            caminhao[y].Tipo_carteira = char.Parse(Console.ReadLine())
                         }
                 
                 }
