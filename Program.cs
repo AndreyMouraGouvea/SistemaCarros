@@ -76,6 +76,7 @@ namespace SistemaCarrosClasse
        private Boolean bagageiro;
        private int numero_assentos;
 
+
         //  construtor
         public Carro(string modelo, string fabricante, int ano, string cor, int numero_portas, int capacidadePortaMala,Boolean bagageiro, int numero_assentos)
         : base(modelo, fabricante, ano, cor, numero_portas)
@@ -127,44 +128,20 @@ namespace SistemaCarrosClasse
    }
 
 
-        
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     class Program
     {
         
         static void Main(string[] args)
         {
-            int x, y, menu;
-            Carro carro= new Carro[300];
-            Caminhao caminhao=new Caminhao[200];
-            carro[x] = new Carro();
-            caminhao[y] = new Caminhao();
+            int x=0, y=0, menu;
+            string s;
+            Carro[] carro= new Carro[300];
+            Caminhao[] caminhao=new Caminhao[200];
+            // caminhao[y] = new Caminhao();
             // 
             // 
-            do{                
+            do
+            {                
                 Console.Clear();
                 Console.WriteLine("1-Cadastro de Carro");
                 Console.WriteLine("2-Cadastro de Caminhão");
@@ -181,25 +158,53 @@ namespace SistemaCarrosClasse
                 {
                     case 1:
                         do{
+                          carro[x] = new Carro();  
                           Console.WriteLine("-------Cadastrar Carro-------")  ;
                           Console.Write("Modelo: ");
                           carro[x].Modelo = Console.ReadLine();
                           Console.Write("Marca/Fabricante: ");
                           carro[x].Fabricante = Console.ReadLine();
                           Console.Write("Ano: ");
-                          carro[x].Ano = Console.ReadLine();
+                          carro[x].Ano = int.Parse(Console.ReadLine());
                           Console.Write("Cor: ");
                           carro[x].Cor = Console.ReadLine();
                           Console.Write("Numero de Portas: ");
-                          carro[x].Numero_Portas = Console.ReadLine();
+                          carro[x].Numero_Portas = int.Parse(Console.ReadLine());
                           Console.Write("Capacidade Porta Mala: ");
-                          carro[x].CapacidadePortaMala = Console.ReadLine();
+                          carro[x].CapacidadePortaMala = int.Parse(Console.ReadLine());
                           Console.Write("Bagageiro: SIM/NAO");
-                          carro[x].Bagageiro = Console.ReadLine();
+                          carro[x].Bagageiro = bool.Parse(Console.ReadLine());
                           Console.Write("Numero de Assentos: ");
-                          carro[x].Numero_assentos = Console.ReadLine();
-
+                          carro[x].Numero_assentos = int.Parse(Console.ReadLine());
+                            Console.Write("Os Dados Estão Corretos? SIM/NAO");
+                            s = Console.ReadLine();
+                        }while (s.ToUpper() != "SIM");
+                        x++;
+                        break;
+                    case 2:
+                        do{
+                            caminhao[y] = new Caminhao();
+                            Console.WriteLine("-------Cadastrar Caminhão-------")  ;
+                            Console.Write("Modelo: ");
+                            caminhao[y].Modelo = Console.ReadLine();
+                            Console.Write("Marca/Fabricante: ");
+                            caminhao[y].Fabricante = Console.ReadLine();
+                            Console.Write("Ano: ");
+                            caminhao[y].Ano = int.Parse(Console.ReadLine());
+                            Console.Write("Cor: ");
+                            caminhao[y].Cor = Console.ReadLine();
+                            Console.Write("Numero de Portas: ");
+                            caminhao[y].Numero_Portas = int.Parse(Console.ReadLine());
+                            // numero eixos, peso maximo carga
+                            Console.Write("Número de Eixos: ");
+                            caminhao[y].Numero_eixos = int.Parse(Console.ReadLine());
+                            Console.Write("Peso Máximo Carga: ");
+                            caminhao[y].Peso_maximo_carga = double.Parse(Console.ReadLine());
+                            // tipo carteira
+                            Console.Write("Tipo Carteira: ");
+                            caminhao[y].Tipo_carteira = char.Parse(Console.ReadLine());
                         }
+                
                 }
             }
         }
