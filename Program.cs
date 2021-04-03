@@ -71,6 +71,7 @@ namespace SistemaCarrosClasse
        private int numero_assentos;
 
 
+
         //  construtor
         public Carro(string modelo, string fabricante, int ano, string cor, int numero_portas, int capacidadePortaMala,Boolean bagageiro, int numero_assentos)
         : base(modelo, fabricante, ano, cor, numero_portas)
@@ -91,6 +92,7 @@ namespace SistemaCarrosClasse
             get { return this.numero_assentos; }
             set { numero_assentos = value;}
         }
+     
    }
    class Caminhao : Veiculo
    {    
