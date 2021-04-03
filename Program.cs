@@ -3,7 +3,7 @@
 namespace SistemaCarrosClasse
 {
 
-     class Veiculo
+     class Veiculo 
    {
          //atributo da classe
        public string modelo;
@@ -11,15 +11,17 @@ namespace SistemaCarrosClasse
        public int ano;
        public string cor;
        public int numero_portas;
+       public string placa;
 
     
         //construtor com parâmetros
-        public Veiculo (string modelo, string fabricante, int ano, string cor, int numero_portas){
+        public Veiculo (string modelo, string fabricante, int ano, string cor, int numero_portas, string placa){
             this.modelo = modelo;
             this.fabricante = fabricante;
             this.ano = ano;
             this.cor = cor;
             this.numero_portas = numero_portas;
+            this.placa = placa;
         }
         public string Modelo{
             get{
@@ -61,6 +63,10 @@ namespace SistemaCarrosClasse
                 numero_portas = value;
             }
         }
+        public string Placa{
+          get { return this.placa;  }
+          set { placa = value; }
+        }
 
     }
      class Carro : Veiculo
@@ -74,7 +80,7 @@ namespace SistemaCarrosClasse
 
         //  construtor
         public Carro(string modelo, string fabricante, int ano, string cor, int numero_portas, int capacidadePortaMala,Boolean bagageiro, int numero_assentos)
-        : base(modelo, fabricante, ano, cor, numero_portas)
+        : base(modelo, fabricante, ano, cor, numero_portas, placa)
         {   
             this.capacidadePortaMala = capacidadePortaMala;
             this.bagageiro = bagageiro;
@@ -103,7 +109,7 @@ namespace SistemaCarrosClasse
        private char tipo_carteira; 
 
        public Caminhao(string modelo, string fabricante, int ano, string cor, int numero_portas, int numero_eixos, double peso_maximo_carga, char tipo_carteira)
-        : base(modelo, fabricante, ano, cor, numero_portas)
+        : base(modelo, fabricante, ano, cor, numero_portas, placa)
         {
             this.numero_eixos = numero_eixos;
             this.peso_maximo_carga = peso_maximo_carga;
@@ -169,6 +175,8 @@ namespace SistemaCarrosClasse
                           carro[x].Numero_Portas = int.Parse(Console.ReadLine());
                           Console.Write("Capacidade Porta Mala: ");
                           carro[x].CapacidadePortaMala = int.Parse(Console.ReadLine());
+                          Console.Write("Placa: ");
+                          carro[x].Placa = Console.ReadLine();
                           Console.Write("Bagageiro: SIM/NAO");
                           carro[x].Bagageiro = bool.Parse(Console.ReadLine());
                           Console.Write("Numero de Assentos: ");
@@ -193,6 +201,8 @@ namespace SistemaCarrosClasse
                             caminhao[y].Cor = Console.ReadLine();
                             Console.Write("Numero de Portas: ");
                             caminhao[y].Numero_Portas = int.Parse(Console.ReadLine());
+                            Console.Write("Placa: ");
+                            caminhao[y].Placa = Console.ReadLine();
                             // numero eixos, peso maximo carga
                             Console.Write("Número de Eixos: ");
                             caminhao[y].Numero_eixos = int.Parse(Console.ReadLine());
@@ -204,7 +214,46 @@ namespace SistemaCarrosClasse
                              Console.Write("Os Dados Estão Corretos? SIM/NAO");
                             s = Console.ReadLine();
                         }while (s.ToUpper() != "SIM");
-                
+                    case 3:
+                      do{
+                        // consulta por Placa
+                          Console.WriteLine("------Consultar por Placa------");
+                          Console.Write("Placa: ");
+                          carro[x].Placa = Console.ReadLine();
+                          Console.WriteLine("Lista de Veículos: Carros: {0} \r\n Caminhões: {1}",carro[x].Placa, caminhao[y].Placa);
+                          Console.WriteLine("Digite SIM para sair desta opção!");
+                           s = Console.ReadLine();
+                      }while (s.ToUpper() != "SIM");
+                   case 4: 
+                      do{
+                        // consulta caminhão por modelo/Marca 
+                        Console.WriteLine("-------Consulta Caminhão por Modelo/Marca-------");
+                        Console.Write("Modelo/Marca: ");
+                        caminhao[y].Modelo = Console.ReadLine();
+                        Console.WriteLine("Lista de Caminhões: {0} \r\n {1}", caminhao[y].Fabricante, caminhao[y].Modelo);
+                        Console.WriteLine("Digite SIM para sair desta opção!");
+                      }while (s.ToUpper() != "SIM");
+                  case 5:
+                      do{
+                        // consultar carro por cor
+                        Console.WriteLine("-------Consulta Carro por Cor------");
+                        Console.Write("Cor: ");
+                        carro[x].Cor = Console.ReadLine();
+                        Console.WriteLine("Lista de Carros com a cor {0}: \r\n {1}", carro[x].Cor, carro[x].Cor);
+                        Console.WriteLine("Digite SIM para sair desta opção!");
+                      }while (s.ToUpper() != "SIM");
+                  case 6: 
+                      do{
+                       Console.WriteLine("-------Exibir Todos Carros Cadastrados-------") ;
+                       Console.WriteLine("Carros: {0}",carro[]);
+                       Console.WriteLine("Digite SIM para sair desta opção!");
+                      }while (s.ToUpper() != "SIM");
+                  case 7: 
+                      do{
+                      Console.WriteLine("-------Exibir Todos Caminhões Cadastrados-------") ;
+                       Console.WriteLine("Caminhões: {0}",caminhao[]);
+                       Console.WriteLine("Digite SIM para sair desta opção!");
+                      }while (s.ToUpper() != "SIM");
                 }
             }while (menu != 0);
         }
