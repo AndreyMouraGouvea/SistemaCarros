@@ -200,11 +200,13 @@ namespace SistemaCarrosClasse
                             caminhao[y].Peso_maximo_carga = double.Parse(Console.ReadLine());
                             // tipo carteira
                             Console.Write("Tipo Carteira: ");
-                            caminhao[y].Tipo_carteira = char.Parse(Console.ReadLine())
-                        }
+                            caminhao[y].Tipo_carteira = char.Parse(Console.ReadLine());
+                             Console.Write("Os Dados Estão Corretos? SIM/NAO");
+                            s = Console.ReadLine();
+                        }while (s.ToUpper() != "SIM");
                 
                 }
-            }
+            }while (menu != 0);
         }
     }
 }
