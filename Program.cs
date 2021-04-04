@@ -217,29 +217,53 @@ namespace SistemaCarrosClasse
                     case 3:
                       do{
                         // consulta por Placa
+                          string cp; //consulta placa
+                          int a=0;
                           Console.WriteLine("------Consultar por Placa------");
                           Console.Write("Placa: ");
-                          carro[x].Placa = Console.ReadLine();
-                          Console.WriteLine("Lista de Veículos: Carros: {0} \r\n Caminhões: {1}",carro[x].Placa, caminhao[y].Placa);
+                          cp = Console.ReadLine();
+                           for (a = 0; a < 500; a++)
+                        {
+                            if (carro[x].Placa.ToUpper() == cp.ToUpper() || caminhao[y].Placa.ToUpper() == cp.ToUpper())
+                            {
+                                Console.WriteLine("Carros: {0} \r\nCaminhões: {1}", carro[x].Placa, caminhao[y].Placa);
+                            }
+                        }
                           Console.WriteLine("Digite SIM para sair desta opção!");
                            s = Console.ReadLine();
                       }while (s.ToUpper() != "SIM");
                    case 4: 
                       do{
                         // consulta caminhão por modelo/Marca 
+                        string cm; //consulta modelo
+                        int a=0;
                         Console.WriteLine("-------Consulta Caminhão por Modelo/Marca-------");
                         Console.Write("Modelo/Marca: ");
-                        caminhao[y].Modelo = Console.ReadLine();
-                        Console.WriteLine("Lista de Caminhões: {0} \r\n {1}", caminhao[y].Fabricante, caminhao[y].Modelo);
+                        cm = Console.ReadLine();
+                          for (a = 0; a < 200; a++)
+                        {
+                            if (caminhao[y].Modelo.ToUpper() == cm.ToUpper() || caminhao[y].Fabricante.ToUpper() == cp.ToUpper())
+                            {
+                                Console.WriteLine("Caminhões: {0}", caminhao[y].Modelo, caminhao[y].Fabricante);
+                            }
+                        }
                         Console.WriteLine("Digite SIM para sair desta opção!");
                       }while (s.ToUpper() != "SIM");
                   case 5:
                       do{
                         // consultar carro por cor
+                        string cc; //consulta cor
+                        int a=0;
                         Console.WriteLine("-------Consulta Carro por Cor------");
                         Console.Write("Cor: ");
-                        carro[x].Cor = Console.ReadLine();
-                        Console.WriteLine("Lista de Carros com a cor {0}: \r\n {1}", carro[x].Cor, carro[x].Cor);
+                        cc = Console.ReadLine();
+                           for (a = 0; a < 300; a++)
+                        {
+                            if (carro[x].Cor.ToUpper() == cc.ToUpper())
+                            {
+                                Console.WriteLine("Carros: {0}", carro[x].Cor);
+                            }
+                        }
                         Console.WriteLine("Digite SIM para sair desta opção!");
                       }while (s.ToUpper() != "SIM");
                   case 6: 
