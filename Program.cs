@@ -13,18 +13,6 @@ namespace SistemaCarrosClasse
     private int numero_portas;
     private string placa;
 
-    
-    //construtor com parâmetros
-    
-    /*public Veiculo (string modelo, string fabricante, int ano, string cor, int numero_portas, string placa)
-    {      
-      this.modelo = modelo;
-      this.fabricante = fabricante;
-      this.ano = ano;
-      this.cor = cor;
-      this.numero_portas = numero_portas;
-      this.placa = placa;
-    }*/
         
     public string Modelo{
       get{
@@ -90,13 +78,6 @@ namespace SistemaCarrosClasse
     private Boolean bagageiro;
     private int numero_assentos;
 
-    //  construtor
-    /*public Carro()
-    {   
-      this.capacidadePortaMala = capacidadePortaMala;
-      this.bagageiro = bagageiro;
-      this.numero_assentos = numero_assentos;
-    }*/
         
     public int CapacidadePortaMala{
       get { 
@@ -134,6 +115,38 @@ namespace SistemaCarrosClasse
     }    
   }
 
+  public class Caminhao : Veiculo
+  {
+    private int numero_eixos;
+    private double peso_maximo_carga;
+    private string tipo_cnh;
+
+    public int Numero_eixos{
+      get {
+        return this.numero_eixos;
+      }
+      set{
+        numero_eixos = value;
+      }
+    }
+    public double Peso_maximo_carga{
+      get{
+        return this.peso_maximo_carga;
+      }
+      set{
+        peso_maximo_carga = value;
+      }
+    }
+    public string Tipo_cnh{
+      get{
+        return this.tipo_cnh;
+      }
+      set{
+        tipo_cnh = value;
+      }
+    }
+  }
+
   class Program
   {
         
@@ -143,10 +156,8 @@ namespace SistemaCarrosClasse
       int x=0, y=0, menu = 0;
       string s;
       Carro[] carro= new Carro[300];
-      //Caminhao[] caminhao=new Caminhao[200];
-            // caminhao[y] = new Caminhao();
-            // 
-            // 
+      Caminhao[] caminhao=new Caminhao[200];
+
       do
       {                
         Console.WriteLine("*** BEM VINDO ***");
@@ -169,7 +180,6 @@ namespace SistemaCarrosClasse
             Console.WriteLine("*** BEM VINDO ***\n");
             do{
 
-              //criar parâmetro aberto?
               carro[x] = new Carro();  
               Console.WriteLine("******** Cadastrar Carro ********\n");
 
@@ -188,7 +198,7 @@ namespace SistemaCarrosClasse
               Console.Write("Numero de Portas: ");
               carro[x].Numero_Portas = int.Parse(Console.ReadLine());
 
-              Console.Write("Capacidade do PortasMala: ");
+              Console.Write("Capacidade do Porta Malas: ");
               carro[x].CapacidadePortaMala = int.Parse(Console.ReadLine());
 
               Console.Write("Placa: ");
@@ -232,34 +242,68 @@ namespace SistemaCarrosClasse
             }while (s.ToUpper() != "SIM");
             break;
           case 2:
-            Console.WriteLine("*** BEM VINDO ***");
-            /*do{
-                            // criar parâmetro aberto?
-                            caminhao[y] = new Caminhao();
-                            Console.WriteLine("-------Cadastrar Caminhão-------")  ;
-                            Console.Write("Modelo: ");
-                            caminhao[y].Modelo = Console.ReadLine();
-                            Console.Write("Marca/Fabricante: ");
-                            caminhao[y].Fabricante = Console.ReadLine();
-                            Console.Write("Ano: ");
-                            caminhao[y].Ano = int.Parse(Console.ReadLine());
-                            Console.Write("Cor: ");
-                            caminhao[y].Cor = Console.ReadLine();
-                            Console.Write("Numero de Portas: ");
-                            caminhao[y].Numero_Portas = int.Parse(Console.ReadLine());
-                            Console.Write("Placa: ");
-                            caminhao[y].Placa = Console.ReadLine();
-                            // numero eixos, peso maximo carga
-                            Console.Write("Número de Eixos: ");
-                            caminhao[y].Numero_eixos = int.Parse(Console.ReadLine());
-                            Console.Write("Peso Máximo Carga: ");
-                            caminhao[y].Peso_maximo_carga = double.Parse(Console.ReadLine());
-                            // tipo carteira
-                            Console.Write("Tipo Carteira: ");
-                            caminhao[y].Tipo_carteira = char.Parse(Console.ReadLine());
-                             Console.Write("Os Dados Estão Corretos? SIM/NAO");
-                            s = Console.ReadLine();
-            }while (s.ToUpper() != "SIM");*/
+            Console.Clear();
+            Console.WriteLine("*** BEM VINDO ***\n");
+            do{
+
+              caminhao[y] = new Caminhao();  
+              Console.WriteLine("******** Cadastrar Caminhão ********\n");
+
+              Console.Write("Modelo: ");
+              caminhao[y].Modelo = Console.ReadLine();
+
+              Console.Write("Marca/Fabricante: ");
+              caminhao[y].Fabricante = Console.ReadLine();
+              
+              Console.Write("Ano: ");
+              caminhao[y].Ano = int.Parse(Console.ReadLine());
+
+              Console.Write("Cor: ");
+              caminhao[y].Cor = Console.ReadLine();
+
+              Console.Write("Numero de Portas: ");
+              caminhao[y].Numero_Portas = int.Parse(Console.ReadLine());
+
+              Console.Write("Placa: ");
+              caminhao[y].Placa = Console.ReadLine();
+
+              Console.Write("Número Eixos: ");
+              caminhao[y].Numero_eixos = int.Parse(Console.ReadLine());
+
+              Console.Write("Peso Máximo Carga: ");
+              caminhao[y].Peso_maximo_carga = double.Parse(Console.ReadLine());
+
+              Console.Write("CNH: ");
+              caminhao[y].Tipo_cnh = Console.ReadLine();
+
+              Console.Clear();
+
+              Console.Write(
+                "Modelo: "+caminhao[y].Modelo+
+                "\nMarca/Fabricante: "+caminhao[y].Fabricante+
+                "\nAno: "+caminhao[y].Ano+
+                "\nCor: "+caminhao[y].Cor+
+                "\nNumero de Portas: "+caminhao[y].Numero_Portas+
+                "\nNumero de Eixos: "+caminhao[y].Numero_eixos+
+                "\nPlaca: "+caminhao[y].Placa+
+                "\nPeso Máximo Carga: "+caminhao[y].Peso_maximo_carga+
+                "\nCNH: "+caminhao[y].Tipo_cnh+
+                "\n\n"
+              );
+
+              Console.Write("Os Dados Estão Corretos? SIM/NAO ");
+              s = Console.ReadLine();
+              
+              Console.Clear();
+
+              if(s.ToUpper() == "SIM"){
+                Console.Write("******** Caminhão cadastrado com sucesso ********\n\n");
+                y++;
+              }       
+
+            }while (s.ToUpper() != "SIM");
+            break;
+            
             break;
           case 3:
             /*do{
